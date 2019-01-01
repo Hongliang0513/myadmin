@@ -8,14 +8,14 @@
  * @return
  *    获取的样式属性值
  */
-let getCss = function (curEle,attr) {
-    if(typeof window.getComputedStyle === 'undefined'){
+let getCss = function (curEle, attr) {
+    if (typeof window.getComputedStyle === 'undefined') {
         return;
     }
-    let val = window.getComputedStyle(curEle,null)[attr];
+    let val = window.getComputedStyle(curEle, null)[attr];
     //=>把获取的结果去除单位（不是所有的值都能去单位的，例如：display\一些复合值都去不掉单位）
-    reg =/^-?\d+(\.\d+)?(px|em|pt|rem)?$/i;
-    reg.test(val)?parseFloat(val):null;
+    reg = /^-?\d+(\.\d+)?(px|em|pt|rem)?$/i;
+    reg.test(val) ? parseFloat(val) : null;
     return val;
 };
 
@@ -42,4 +42,23 @@ let setCss = function (curEle, attr, value) {
         reg.test(attr) ? value += 'px' : null;
     }
     curEle['style'][attr] = value;
+};
+//=>给元素批量设置样式
+let setGroupCss = function (curEle, options = {}) {
+    //=>遍历传递的OPTIONS,有多少键值对,就循环多少次,每一次都调取SET-CSS方法逐一设置即可
+    for (let attr in options) {
+        if (!options.hasOwnProperty(attr)) break;
+        //=>options:传递进来的需要修改的样式对象(集合)
+        //=>attr:每一次遍历到的集合中的某一项(要操作的样式属性名)
+        //=>options[attr]:传递的要操作的样式属性值
+        setCss(curEle, attr, options[attr]);
+    }
+};
+
+let css = function (...arg) {
+    let len = arg.length,
+        fn = getCss;
+    len>=3? fn = setCss:null;
+    len === 2 && (arg[1] instanceof Object) ? fn=setGroupCss:null;
+    return fn(...arg);
 };
