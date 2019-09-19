@@ -1,4 +1,4 @@
-# sggadmin
+# myadmin
 
 ## Project setup
 ```
