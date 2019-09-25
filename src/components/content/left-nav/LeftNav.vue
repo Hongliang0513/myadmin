@@ -4,12 +4,11 @@
       <img src="~assets/images/logo.png" alt="logo" />
       <h1>Awesome后台</h1>
     </header>
-    <el-menu
+    <left-menu :menuSetting="menuSetting" :menuList="menuList" />
+    <!-- <el-menu
       :default-active="$route.path"
       router
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#002140"
       text-color="#fff"
       active-text-color="skyblue"
@@ -50,33 +49,50 @@
           <span slot="title">图形图表</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/bar">
+          <el-menu-item index="/charts/bar">
             <i class="el-icon-coin"></i>
             <span slot="title">柱形图</span>
           </el-menu-item>
-          <el-menu-item index="/line">
+          <el-menu-item index="/charts/line">
             <i class="el-icon-s-operation"></i>
             <span slot="title">折线图</span>
           </el-menu-item>
-          <el-menu-item index="/pie">
+          <el-menu-item index="/charts/pie">
             <i class="el-icon-pie-chart"></i>
             <span slot="title">饼图</span>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
-    </el-menu>
+    </el-menu> -->
   </div>
 </template>
 
 <script>
+import LeftMenu from '../left-menu/LeftMenu'
+
+import menus from '../../../config/menuConfig'
+
 export default {
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath)
-    },
+  data() {
+    return {
+      menuSetting: {
+        mode: 'vertical',
+        collapse: false,
+        backgroundColor: '#002140',
+        textColor: '#fff',
+        activeTextColor: 'skyblue',
+        defaultActive: this.$route.path,
+        defaultOpeneds: [],
+        uniqueOpened: false,
+        menuTrigger: 'hover',
+        router: true,
+        collapseTransition: true,
+      },
+      menuList: menus,
+    }
+  },
+  components: {
+    LeftMenu,
   },
 }
 </script>

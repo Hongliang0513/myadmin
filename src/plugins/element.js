@@ -17,6 +17,17 @@ import {
   MenuItemGroup,
   Row,
   Col,
+  Message,
+  MessageBox,
+  Table,
+  TableColumn,
+  Card,
+  Pagination,
+  Dialog,
+  Select,
+  Option,
+  OptionGroup,
+  Loading,
 } from 'element-ui'
 
 Vue.use(Button)
@@ -36,3 +47,20 @@ Vue.use(MenuItem)
 Vue.use(MenuItemGroup)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Card)
+Vue.use(Pagination)
+Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(OptionGroup)
+Vue.use(Loading)
+
+// Vue.prototype.$loading = Loading.service;
+Vue.prototype.$msgbox = MessageBox;
+Vue.prototype.$alert = MessageBox.alert;
+Vue.prototype.$confirm = MessageBox.confirm;
+Vue.prototype.$prompt = MessageBox.prompt;
+Vue.prototype.$notify = Notification;
+Vue.prototype.$message = Message;

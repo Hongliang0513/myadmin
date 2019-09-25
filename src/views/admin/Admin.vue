@@ -4,13 +4,15 @@
       <LeftNav />
     </el-aside>
     <el-container>
-      <el-header>
+      <el-header height="80px">
         <Header />
       </el-header>
       <el-main>
-        <router-view></router-view>
+        <div class="admin-main">
+          <router-view></router-view>
+        </div>
       </el-main>
-      <el-footer class="admin-footer">推荐使用谷歌浏览器，可以获得更佳页面操作体验</el-footer>
+      <el-footer height="40px" class="admin-footer">推荐使用谷歌浏览器，可以获得更佳页面操作体验</el-footer>
     </el-container>
   </el-container>
 </template>
@@ -18,8 +20,8 @@
 <script>
 import memoryUtils from 'utils/memoryUtils'
 
-import LeftNav from 'components/left-nav/LeftNav'
-import Header from '../../components/header/Header'
+import LeftNav from 'components/content/left-nav/LeftNav'
+import Header from '../../components/content/header/Header'
 
 export default {
   data() {
@@ -45,26 +47,28 @@ export default {
 <style lang="less" scoped>
 .container {
   height: 100%;
+  .admin-main {
+    background-color: #fff;
+    height: 100%;
+  }
   .admin-footer {
-    background-color: #edf2ef;
+    // background-color: #edf2ef;
     color: #ccc;
     text-align: center;
-    line-height: 60px;
+    line-height: 40px;
   }
 }
-.el-header,
-.el-footer {
-  background-color: #edf2ef;
-  color: #ccc;
+
+.el-header {
+  padding: 0;
 }
 
 .el-aside {
   background-color: #13213e;
-  color: #333;
 }
 
 .el-main {
-  background-color: #fff;
-  color: #333;
+  background-color: #edf2ef;
+  // padding: 0 20px;
 }
 </style>

@@ -10,8 +10,9 @@ import Role from '../views/role/Role'
 import Bar from '../views/charts/Bar'
 import Line from '../views/charts/Line'
 import Pie from '../views/charts/Pie'
+import Admin from '../views/admin/Admin'
 
-const Admin = () => import('../views/admin/Admin')
+// const Admin = () => import('../views/admin/Admin')
 
 Vue.use(Router)
 
@@ -53,15 +54,15 @@ export default new Router({
           component: Role,
         },
         {
-          path: '/bar',
+          path: '/charts/bar',
           component: Bar,
         },
         {
-          path: '/line',
+          path: '/charts/line',
           component: Line,
         },
         {
-          path: '/pie',
+          path: '/charts/pie',
           component: Pie,
         },
       ],
