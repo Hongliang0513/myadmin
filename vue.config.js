@@ -11,15 +11,16 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('_c', resolve('src/components'))
+      .set('_v', resolve('src/views'))
   },
-   pluginOptions: {
-     "style-resources-loader": {
-       preProcessor: "less",
-       patterns: [
-         resolve('/src/assets/styles/_variable.less')
-       ]
-     }
-   },
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [
+        resolve('/src/assets/styles/_variable.less')
+      ]
+    }
+  },
   // 打包时不生成.map文件
   productionSourceMap: false,
   devServer: {
