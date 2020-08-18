@@ -39,6 +39,6 @@ git push origin master // 将本地代码推到远程主分支
 git checkout -b 分支名 // 创建本地分支并切换到对应分支
 git push -u origin 分支1 // 将本地分支1推送到远程仓库
 git branch // 查看所有分支
-git branch 分支名 // 切换分支
+git checkout 分支名 // 切换分支
 git merge 分支1 // 将分支1代码更新到主分支
 ```
